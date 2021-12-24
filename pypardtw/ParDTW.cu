@@ -52,8 +52,8 @@ __global__ void DTWKernel(double* v1_ptr, double* v2_ptr, int diagonalIdx, int h
 	double option2 = MAXDOUBLE;
 	double option3 = MAXDOUBLE;
 	// Bottom row of DTW
-	if (SUBSEQUENCE == 0 and global_y == 0) option1 = cost; // bottom row of subsequence DTW
-	else if (SUBSEQUENCE == 1 and global_x == 0 and global_y == 0) option1 = cost;
+	if (SUBSEQUENCE == 1 and global_y == 0) option1 = cost; // bottom row of subsequence DTW
+	else if (SUBSEQUENCE == 0 and global_x == 0 and global_y == 0) option1 = cost;
 	else {
 		int o1_idx = e - 1; // (-1,-1)
 		int o2_idx = e - 1; // (-2, -1)

@@ -5,6 +5,8 @@ from ctypes import POINTER, c_int, c_double, c_size_t, c_bool
 from numpy.ctypeslib import ndpointer
 
 def pardtw(v1, v2, subsequence=False):
+    v1 = v1.T
+    v2 = v2.T
     pardtwlib = ctypes.CDLL("./parDTW.so")
     
     v1_size = v1.shape[0]
@@ -26,7 +28,7 @@ def pardtw(v1, v2, subsequence=False):
     pardtwlib._parDTW.restype = ndpointer(dtype=c_int, shape=(v1_size,))
     path = pardtwlib._parDTW(v1_ptr, v2_ptr, v1_size, v2_size, hidden_size, subsequence)
     final_path = []
-    for x, y in enumerate(path):
+    for x, y in reversed(list(enumerate(path))):
         if y != -1:
             final_path.append([x, y])
     return np.array(final_path)
