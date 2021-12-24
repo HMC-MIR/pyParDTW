@@ -1,16 +1,13 @@
-# SegmentalDTWCUDA
-This respository contains code for cuda-accelerated segmental DTW.
+# Python ParDTW
+This respository contains a python wrapper for cuda-accelerated ParDTW.
 
-To change parameters M,N edit src/SegmentDTW.hpp
-
-To recompile, run make. To run the code, 
+In order to use this repository, install it using
 ```
-./segDTW.out -v1=file1.txt -v2=file2.txt
+pip install .
 ```
 
-Please take a look at generator.py to figure out the format of the input files.
-
-For python code integration, consider using the subprocess library.
+Then, import the module and run the code
 ```
-p = Popen(["./segDTW.out -v1=file1.txt -v2=file2.txt"], shell=True)
+from pypardtw import pardtw
+pardtw.pardtw(seq1, seq2, subsequence = False)
 ```
