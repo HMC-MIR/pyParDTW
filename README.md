@@ -11,3 +11,5 @@ Then, import the module and run the code
 from pypardtw import pardtw
 pardtw.pardtw(seq1, seq2, subsequence = False)
 ```
+
+Please look at the Example.ipynb notebook for details on usage.
